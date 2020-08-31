@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/OlawaleJoseph/team-save.svg?branch=develop)](https://travis-ci.org/OlawaleJoseph/team-save)
+[![Build Status](https://travis-ci.org/OlawaleJoseph/team-save.svg?branch=develop)](https://travis-ci.org/OlawaleJoseph/team-save) [![Maintainability](https://api.codeclimate.com/v1/badges/7d3d0edb9439320812f5/maintainability)](https://codeclimate.com/github/OlawaleJoseph/team-save/maintainability)
 
 yarn install --check-files
 
