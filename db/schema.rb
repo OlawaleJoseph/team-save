@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_131042) do
+ActiveRecord::Schema.define(version: 2020_08_31_151552) do
+
+  create_table "expenses", force: :cascade do |t|
+    t.integer "author_id"
+    t.string "name", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_expenses_on_author_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
