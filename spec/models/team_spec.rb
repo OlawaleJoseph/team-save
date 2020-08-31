@@ -20,6 +20,7 @@ RSpec.describe Team, type: :model do
       scenario { should have_many(:members).through(:team_members) }
       scenario { should have_many(:team_expenses) }
       scenario { should have_many(:expenses).through(:team_expenses) }
+      scenario { should have_one_attached(:image) }
     end
   end
 end
