@@ -2,59 +2,29 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context'User Model' do
-    let(:user) { build :user}
-    scenario "must have first name" do
-      user.first_name = nil
-      expect(user.valid?).to be false
-    end
+    subject { build :user}
 
-    scenario "first name should have not less than 3 characters" do
-      user.first_name = 'aa'
-      expect(user.valid?).to be false
-    end
+    scenario { should validate_presence_of(:first_name) }
 
-    scenario "first name should have not more than 50 characters" do
-      user.first_name = 'a' * 51
-      expect(user.valid?).to be false
-    end
+    scenario { should validate_length_of(:first_name).is_at_least(3) }
+    
+    scenario { should validate_length_of(:first_name).is_at_most(50) }
+
+    scenario { should validate_presence_of(:last_name) }
+
+    scenario { should validate_length_of(:last_name).is_at_least(3) }
+    
+    scenario { should validate_length_of(:last_name).is_at_most(50) }
   
-    scenario "must have last name" do
-      user.last_name = nil
-      expect(user.valid?).to be false
-    end
-    scenario "last name should have not less than 3 characters" do
-      user.last_name = 'aa'
-      expect(user.valid?).to be false
-    end
+    scenario { should validate_presence_of(:username) }
 
-    scenario "last name should have not more than 50 characters" do
-      user.last_name = 'a' * 51
-      expect(user.valid?).to be false
-    end
+    scenario { should validate_length_of(:username).is_at_least(3) }
+    
+    scenario { should validate_length_of(:username).is_at_most(50) }
+
+    scenario { should validate_uniqueness_of(:username).case_insensitive }
   
-    scenario "must have username" do
-      user.username = nil
-      expect(user.valid?).to be false
-    end
-
-    scenario "username should have not less than 3 characters" do
-      user.username = 'aa'
-      expect(user.valid?).to be false
-    end
-
-    scenario "user name should have not more than 50 characters" do
-      user.username = 'a' * 51
-      expect(user.valid?).to be false
-    end
-
-    scenario "user name should be unique" do
-      create :user
-      expect(user.valid?).to be false
-    end
-  
-    scenario "Should be valid" do
-      expect(user.valid?).to be true
-    end
+    scenario { should be_valid }
   end
 
 end
