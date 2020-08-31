@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Expense, type: :model do
   context 'Expense Model' do
     subject { build :expense }
-    
+
     context 'Validation' do
 
       scenario { should validate_presence_of(:name) }
@@ -20,7 +20,7 @@ RSpec.describe Expense, type: :model do
     end
 
     context 'Association' do
-      scenario { should belong_to(:user)}
+      scenario { should belong_to(:author)}
     end
   end
 end
