@@ -1,0 +1,2 @@
+class TeamExpense < ApplicationRecord
+end
