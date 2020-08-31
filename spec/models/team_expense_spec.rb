@@ -1,12 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe TeamExpense, type: :model do
-  subject { build :team_expense }
-
+  
   context 'TeamExpense model' do
-    context 'Validations' do
-      it { should validate_presence_of(:confirmed) }
-    end
+    subject { build :team_expense }
 
     context 'Associations' do
       it { should belong_to(:team) }
