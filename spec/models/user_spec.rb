@@ -27,7 +27,7 @@ RSpec.describe User, type: :model do
 
       scenario { should be_valid }
     end
-    
+
     context 'Association' do
       scenario { should have_many(:expenses) }
     end

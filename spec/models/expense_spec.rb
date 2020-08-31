@@ -5,7 +5,6 @@ RSpec.describe Expense, type: :model do
     subject { build :expense }
 
     context 'Validation' do
-
       scenario { should validate_presence_of(:name) }
 
       scenario { should validate_length_of(:name).is_at_least(2) }
@@ -20,7 +19,7 @@ RSpec.describe Expense, type: :model do
     end
 
     context 'Association' do
-      scenario { should belong_to(:author)}
+      scenario { should belong_to(:author) }
     end
   end
 end
