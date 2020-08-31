@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TeamExpense, type: :model do
-  
   context 'TeamExpense model' do
     subject { build :team_expense }
 

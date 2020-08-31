@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe TeamMember, type: :model do
-  context "TeamMember Model" do
+  context 'TeamMember Model' do
     subject { build :team_member }
-      
+
     context 'Validations' do
       it { should validate_presence_of(:confirmed) }
     end

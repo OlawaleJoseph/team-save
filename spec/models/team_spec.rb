@@ -16,9 +16,9 @@ RSpec.describe Team, type: :model do
 
     context 'Associations' do
       scenario { should belong_to(:creator) }
-      scenario { should have_many(:team_members)}
+      scenario { should have_many(:team_members) }
       scenario { should have_many(:members).through(:team_members) }
-      scenario { should have_many(:team_expenses)}
+      scenario { should have_many(:team_expenses) }
       scenario { should have_many(:expenses).through(:team_expenses) }
     end
   end
