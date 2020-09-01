@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: %i[new create]
+
   def index
     @users = Users.all
   end
@@ -9,16 +10,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    user.avatar.attach(params[:user][:avatar])
-    puts "Avatar!!!!!!!!!!!!!!!!!!"
-    puts url_for(user.avatar)
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(user_params)
+    @user.avatar.attach(params[:user][:avatar])
+    if @user.save
+      session[:user_id] = @user.id
       flash[:success] = 'Account created successfully'
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
-      flash.now[:alert] = user.errors.full_messages
       render :new
     end
   end
