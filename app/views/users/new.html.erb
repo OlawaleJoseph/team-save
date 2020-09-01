@@ -1,0 +1,11 @@
+
+<h1 class='text-center mt-5' >Register</h1>
+<div class="form-container">
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :username %>
+    <%= f.input :avatar, as: :file %>
+    <%= f.button :submit, "Register", class: 'btn-lg btn-success' %>
+  <% end %>
+</div>
