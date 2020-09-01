@@ -1,9 +1,16 @@
-<h1>Users#show</h1>
-<p>Dashboard</p>
-<% if @user.avatar.attached? %>
-  <p>Image Here</p>
-  <img src="<%= url_for(@user.avatar) %>" alt="">
-<% else %>
-<p>No Image</p>
-  <%= @user %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 h-100">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">My Expenses</a>
+        <a href="#" class="list-group-item list-group-item-action">All Expenses</a>
+        <a href="#" class="list-group-item list-group-item-action">My Teams</a>
+        <a href="#" class="list-group-item list-group-item-action">Invitations</a>
+      </div> 
+		</div>
+		<div class="col-md-9">
+    <h3>Dashboard</h3>
+
+		</div>
+	</div>
+</div>
