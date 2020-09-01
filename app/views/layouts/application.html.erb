@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <div>
+    <%= link_to 'Logout', logout_path, method: :delete %>
+    <%= link_to 'Sign In', new_session_path %>
+    <%= link_to 'Register', new_user_path %>
+    </div>
     <%= yield %>
     <% unless flash.empty? %>
     <script type="text/javascript">
