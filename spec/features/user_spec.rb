@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Users", type: :feature do
+RSpec.feature 'Users', type: :feature do
   subject { build :user }
 
   scenario 'Validate user input' do
@@ -9,7 +9,7 @@ RSpec.feature "Users", type: :feature do
     fill_in 'Last name', with: subject.last_name
     fill_in 'Username', with: subject.username
     click_button 'Register'
-    
+
     expect(page).to have_content(
       "First name can't be blank and First name is too short (minimum is 3 characters)"
     )
@@ -30,7 +30,7 @@ RSpec.feature "Users", type: :feature do
     fill_in 'First name', with: subject.first_name
     fill_in 'Last name', with: subject.last_name
     fill_in 'Username', with: subject.username
-    attach_file("user[avatar]", Rails.root + 'app/assets/images/img.jpeg')
+    attach_file('user[avatar]', Rails.root + 'app/assets/images/img.jpeg')
     click_button 'Register'
 
     expect(page).to have_content('Dashboard')
