@@ -1,0 +1,9 @@
+
+<h1 class='text-center mt-5' >New Expense</h1>
+<div class="form-container">
+  <%= simple_form_for @expense do |f| %>
+    <%= f.input :name %>
+    <%= f.input :amount %>
+    <%= f.button :submit, "Create", class: 'btn-lg btn-success w-100' %>
+  <% end %>
+</div>
