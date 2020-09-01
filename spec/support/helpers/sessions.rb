@@ -3,7 +3,7 @@ module Helpers
     def sign_in(user)
       visit new_session_path
 
-      fill_in "user[username]", with: user.username
+      fill_in 'user[username]', with: user.username
       click_button 'Log In'
     end
 

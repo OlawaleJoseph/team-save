@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Sessions", type: :feature do
+RSpec.feature 'Sessions', type: :feature do
   let(:person) { create :user }
 
   scenario 'Validate user input' do
@@ -15,14 +15,13 @@ RSpec.feature "Sessions", type: :feature do
   scenario 'Login registered user with valid username' do
     sign_in person
 
-    expect(page).to have_content("Dashboard")
+    expect(page).to have_content('Dashboard')
   end
 
   scenario 'Logout a user' do
     sign_in person
 
     sign_out
-    expect(page).to have_content("Sign In")
+    expect(page).to have_content('Sign In')
   end
 end
-

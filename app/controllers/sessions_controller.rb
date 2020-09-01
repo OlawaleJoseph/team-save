@@ -1,8 +1,7 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_user, only: [:new, :create]
-  
-  def new
-  end
+  skip_before_action :authenticate_user, only: %i[new create]
+
+  def new; end
 
   def create
     user = User.where(username: params['user']['username']).first
@@ -18,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash.now[:notice] = "Logged out successfully"
+    flash.now[:notice] = 'Logged out successfully'
     render :new
   end
 end
