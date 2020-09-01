@@ -1,2 +1,10 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :username %>
+  <%= f.input :avatar, as: :file %>
+  <%= f.button :submit, class: 'btn-lg btn-success' %>
+<% end %>

@@ -1,2 +1,9 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+<% if @user.avatar.attached? %>
+  <p>Image Here</p>
+  <img src="<%= url_for(@user.avatar) %>" alt="">
+<% else %>
+<p>No Image</p>
+  <%= @user %>
+<% end %>
