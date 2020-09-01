@@ -1,0 +1,8 @@
+
+<div class="form-container mt-5">
+  <h1 class='text-center mt-4 mb-3'>Sign In</h1>
+  <%= simple_form_for :user, url: sessions_path do |f| %>
+    <%= f.input :username %>
+    <%= f.button :submit, 'Log In', class: 'btn-success btn-lg w-100'%>
+  <% end %>
+</div>
