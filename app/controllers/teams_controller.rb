@@ -47,8 +47,4 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name, :image)
   end
-
-  def invite_params
-    params.require(:team_member).permit(:username)
-  end
 end
