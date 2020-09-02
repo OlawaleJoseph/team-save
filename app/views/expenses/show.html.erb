@@ -1,0 +1,17 @@
+
+<div class='w-50 mx-auto mt-5'>
+  <div class="card" style="width: 18rem;">
+    Group Image here
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= @expense.name %>
+      </h5>
+      <p class="card-text">
+        <%= @expense.created_at.time.to_formatted_s(:rfc822) %>
+      </p>
+      <%= link_to 'Delete', expense_path(@expense), method: :delete, class:"btn btn-danger" %>
+    </div>
+  </div>
+</div>
+
+
