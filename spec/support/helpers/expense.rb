@@ -21,8 +21,7 @@ module Helpers
     end
 
     def send_invite(user, user2)
-      create user2
-      create user
+      sign_in user
 
       create_team user
       visit team_path(1)

@@ -38,23 +38,23 @@ RSpec.feature 'Users', type: :feature do
 
   context 'Team Invite' do
     let(:user) { create :user }
-    let(:user) { create :user, username: 'test2' }
+    let(:user2) { create :user, username: 'test2' }
     scenario 'Accept team invite' do
       send_invite(user, user2)
 
       sign_in user2
-      visit user_path(user2) + '/invitations'
+      visit '/me/invitations'
 
       expect(page).to have_content('Accept')
       click_link 'Accept'
       expect(page).to have_content('TEST')
     end
 
-    scenario 'Accept team invite' do
+    scenario 'Reject team invite' do
       send_invite(user, user2)
 
       sign_in user2
-      visit user_path(user2) + '/invitations'
+      visit '/me/invitations'
 
       expect(page).to have_content('Reject')
       click_link 'Reject'

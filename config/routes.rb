@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :teams, except: [:edit, :update]
   delete 'logout', to: 'sessions#destroy'
   post 'teams/:team_id/invite', to: 'teams#invite'
+  get '/me/invitations', to: 'users#invitation'
+  put '/me/:invitation_id/accept', to: 'users#accept_invitation'
+  put '/me/:invitation_id/reject', to: 'users#reject_invitation'
 end

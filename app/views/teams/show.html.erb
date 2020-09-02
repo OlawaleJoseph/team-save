@@ -1,6 +1,8 @@
 <h1>Teams#show</h1>
 <p>Find me in app/views/teams/show.html.erb</p>
 
+<%= @team.name.upcase%>
+
 <%= form_with(url: "/teams/#{@team.id}/invite") do %>
   <%= label_tag :username, "Username:" %>
   <%= text_field_tag :username %>
