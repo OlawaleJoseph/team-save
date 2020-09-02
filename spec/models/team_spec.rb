@@ -11,9 +11,8 @@ RSpec.describe Team, type: :model do
 
       scenario { should validate_length_of(:name).is_at_most(20) }
 
-      scenario { should be_valid }
+      scenario { should validate_presence_of(:image) }
     end
-
     context 'Associations' do
       scenario { should belong_to(:creator) }
       scenario { should have_many(:team_members) }

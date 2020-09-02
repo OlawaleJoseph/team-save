@@ -16,7 +16,7 @@ module Helpers
       visit new_team_path
 
       fill_in 'team[name]', with: 'test'
-      fill_in 'team[logo]', with: Rails.root + 'img.jpeg'
+      attach_file('team[image]', Rails.root + 'app/assets/images/img.jpeg')
       click_button 'Create'
     end
   end
