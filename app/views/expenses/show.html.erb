@@ -1,2 +1,5 @@
 <h1>Expenses#show</h1>
 <p>Find me in app/views/expenses/show.html.erb</p>
+
+<%= @expense.name %>
+<%= link_to 'Delete', expense_path(@expense), method: :delete %>

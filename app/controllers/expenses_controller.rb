@@ -22,9 +22,9 @@ class ExpensesController < ApplicationController
     @expense = Expense.find(params[:id])
   end
 
-  def delete
+  def destroy
     @expense = Expense.find(params[:id])
-    if @expense.exists?
+    if @expense
       @expense.destroy
       flash[:notice] = 'Expense deleted successfully'
       redirect_to expenses_path
