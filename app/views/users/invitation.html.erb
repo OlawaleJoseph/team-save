@@ -7,4 +7,6 @@
 <%= invitation.team.as_json %>
 <%= invitation.member.as_json %>
 <%= link_to 'Accept', "/me/#{invitation.id}/accept", method: :put %>
+<%= link_to 'Reject', "/me/#{invitation.id}/reject", method: :put %>
+
 <% end %>
