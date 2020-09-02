@@ -32,14 +32,14 @@ class UsersController < ApplicationController
   def accept_invitation
     invitation = current_user.team_members.find(params[:invitation_id])
     invitation.update(confirmed: true)
-    flash[:success] = "You have been added"
+    flash[:success] = 'You have been added'
     redirect_to team_path(invitation.team_id)
   end
 
   def reject_invitation
     invitation = current_user.team_members.find(params[:invitation_id])
     invitation.destroy
-    flash[:success] = "Invitation has been rejected"
+    flash[:success] = 'Invitation has been rejected'
     redirect_to '/me/invitations'
   end
 
