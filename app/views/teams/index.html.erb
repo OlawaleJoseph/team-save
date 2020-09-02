@@ -2,3 +2,18 @@
 <p>Find me in app/views/teams/index.html.erb</p>
 
 <h3>My Teams</h3>
+
+<% @teams.each do |team| %>
+  <div>
+    <h3> <%= team.name %> </h3>
+    <div style='width:30px'>
+      <%= image_tag team.image %>
+    </div>
+  </div>
+  <div>
+    <% team.expenses.each do |exp| %>
+      <h3> <%= exp.name %> </h3>
+    <% end %>
+  </div>
+
+<% end %>

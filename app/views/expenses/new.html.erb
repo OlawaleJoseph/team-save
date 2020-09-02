@@ -4,6 +4,7 @@
   <%= simple_form_for @expense do |f| %>
     <%= f.input :name %>
     <%= f.input :amount %>
+    <%= f.association :teams, as: :check_boxes, class: 'form-check-input' %>
     <%= f.button :submit, "Create", class: 'btn-lg btn-success w-100' %>
   <% end %>
 </div>

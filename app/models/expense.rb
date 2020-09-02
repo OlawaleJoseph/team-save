@@ -1,5 +1,7 @@
 class Expense < ApplicationRecord
   belongs_to :author, class_name: 'User'
+  has_many :team_expenses
+  has_many :teams, through: :team_expenses
 
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: { case_sensitive: false }
   validates :amount, presence: true
