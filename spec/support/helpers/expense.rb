@@ -19,5 +19,15 @@ module Helpers
       attach_file('team[image]', Rails.root + 'app/assets/images/img.jpeg')
       click_button 'Create'
     end
+
+    def send_invite(user, user2)
+      create user2
+      create user
+
+      create_team user
+      visit team_path(1)
+      fill_in :username, with: user2.username
+      click_button 'Invite'
+    end
   end
 end
