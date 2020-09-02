@@ -29,5 +29,28 @@ RSpec.feature "Expenses", type: :feature do
       expect(page.current_path).to eq(expenses_path)
       expect(page).to have_content('test')
     end
-  end  
+  end
+
+  context 'Single Expense' do
+    
+    scenario 'Show an expense' do
+      create_expense person
+      visit expense_path(1)
+
+      expect(page).to have_content('test')
+    end
+
+    scenario 'Delete an expense' do
+      create_expense person
+      visit expense_path(1)
+      click_link 'Delete'
+      expect{ click_link 'Delete' }.to change{Expense.count}.by(1)
+      expect(page.current_path).to eq(expenses_path)
+      expect(page).to not_have_content('test')
+    end
+
+  end
+
+
+  
 end

@@ -19,9 +19,16 @@ class ExpensesController < ApplicationController
   end
 
   def show
+    @expense = Expense.find(params[:id])
   end
 
   def delete
+    @expense = Expense.find(params[:id])
+    if @expense.exists?
+      @expense.destroy
+      flash[:notice] = 'Expense deleted successfully'
+      redirect_to expenses_path
+    end
   end
 
   def expense_params
