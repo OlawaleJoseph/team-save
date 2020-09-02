@@ -4,7 +4,8 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new
+    @expense = current_user.expenses.build
+    @teams = current_user.my_teams
   end
 
   def create
@@ -31,6 +32,6 @@ class ExpensesController < ApplicationController
   end
 
   def expense_params
-    params.require(:expense).permit(:name, :amount)
+    params.require(:expense).permit(:name, :amount, team_ids: [])
   end
 end
