@@ -36,7 +36,7 @@ RSpec.feature "Teams", type: :feature do
     end
   end
 
-  context 'Single Team' do
+  context 'Team' do
     scenario 'Show a team' do
       create_team person
       visit team_path(1)
@@ -51,6 +51,23 @@ RSpec.feature "Teams", type: :feature do
       expect { click_link 'Delete' }.to change{ Team.count }.by(-1)
       expect(page.current_path).to eq(teams_path)
       expect(page).to have_no_content('test')
+    end
+
+    scenario 'Send an Invite' do
+      user2 = create :user, username: 'test2'
+
+      create_team person
+      visit team_path(1)
+      fill_in :username, with: 'test2'
+      expect { click_button 'Invite' }.to change{ TeamMember.count }.by(1)
+    end
+
+    scenario 'Invitee does not exist' do
+
+      create_team person
+      visit team_path(1)
+      fill_in :username, with: 'test2'
+      expect { click_button 'Invite' }.not_to change{ TeamMember.count }
     end
   end
 

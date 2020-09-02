@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :expenses, except: [:edit, :update]
   resources :teams, except: [:edit, :update]
   delete 'logout', to: 'sessions#destroy'
+  post 'teams/:team_id/invite', to: 'teams#invite'
 end
