@@ -1,5 +1,4 @@
 class ExpensesController < ApplicationController
-
   def index
     @expenses = Expense.includes(:author).where(author_id: current_user.id)
   end
@@ -24,11 +23,11 @@ class ExpensesController < ApplicationController
 
   def destroy
     @expense = Expense.find(params[:id])
-    if @expense
-      @expense.destroy
-      flash[:notice] = 'Expense deleted successfully'
-      redirect_to expenses_path
-    end
+    return unless @expense
+
+    @expense.destroy
+    flash[:notice] = 'Expense deleted successfully'
+    redirect_to expenses_path
   end
 
   def expense_params

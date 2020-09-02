@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Expenses", type: :feature do
+RSpec.feature 'Expenses', type: :feature do
   let(:person) { create :user }
 
   context 'Create Expense' do
@@ -23,8 +23,7 @@ RSpec.feature "Expenses", type: :feature do
     end
 
     scenario 'valid parameters given' do
-      
-      expect{ create_expense person}.to change{Expense.count}.by(1)
+      expect { create_expense person }.to change { Expense.count }.by(1)
       expect(Expense.last.id).to eq(person.id)
       expect(page.current_path).to eq(expenses_path)
       expect(page).to have_content('test')
@@ -32,7 +31,6 @@ RSpec.feature "Expenses", type: :feature do
   end
 
   context 'Single Expense' do
-    
     scenario 'Show an expense' do
       create_expense person
       visit expense_path(1)
@@ -44,13 +42,9 @@ RSpec.feature "Expenses", type: :feature do
       create_expense person
       visit expense_path(1)
 
-      expect{ click_link 'Delete' }.to change{Expense.count}.by(-1)
+      expect { click_link 'Delete' }.to change { Expense.count }.by(-1)
       expect(page.current_path).to eq(expenses_path)
       expect(page).to have_no_content('test')
     end
-
   end
-
-
-  
 end
