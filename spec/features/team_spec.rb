@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Teams", type: :feature do
+RSpec.feature 'Teams', type: :feature do
   let(:person) { create :user }
 
   context 'Create Team' do
@@ -29,9 +29,9 @@ RSpec.feature "Teams", type: :feature do
     end
 
     scenario 'unique team name' do
-      create_team person 
+      create_team person
 
-      expect { create_team person }.not_to change { Team.count }
+      expect { create_team person }.not_to(change { Team.count })
       expect(page).to have_content('Name has already been taken')
     end
   end
@@ -48,26 +48,25 @@ RSpec.feature "Teams", type: :feature do
       create_team person
       visit team_path(1)
 
-      expect { click_link 'Delete' }.to change{ Team.count }.by(-1)
+      expect { click_link 'Delete' }.to change { Team.count }.by(-1)
       expect(page.current_path).to eq(teams_path)
       expect(page).to have_no_content('test')
     end
 
     scenario 'Send an Invite' do
-      user2 = create :user, username: 'test2'
+      create :user, username: 'test2'
 
       create_team person
       visit team_path(1)
       fill_in :username, with: 'test2'
-      expect { click_button 'Invite' }.to change{ TeamMember.count }.by(1)
+      expect { click_button 'Invite' }.to change { TeamMember.count }.by(1)
     end
 
     scenario 'Invitee does not exist' do
-
       create_team person
       visit team_path(1)
       fill_in :username, with: 'test2'
-      expect { click_button 'Invite' }.not_to change{ TeamMember.count }
+      expect { click_button 'Invite' }.not_to(change { TeamMember.count })
     end
   end
 
