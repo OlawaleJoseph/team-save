@@ -9,5 +9,12 @@ $breakpoint-tablet: 768px;
 }
 
 .avatar-container {
-  width: 25px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card {
+  max-width: 25%;
+  min-width: 16rem !important;
 }

@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { minimum: 3, maximum: 50 }
   validates :username, presence: true, length: { minimum: 3, maximum: 50 },
                        uniqueness: { case_sensitive: false }
+
+  def total_expenses
+    expenses.map(&:amount).inject(:+)
+  end
 end

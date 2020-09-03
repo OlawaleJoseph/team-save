@@ -14,6 +14,12 @@
  *= require_self
  */
 
+.wrapper {
+  max-width: 2100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 nav {
   height: 10vh;
   background-color: #3778c2;
@@ -21,4 +27,37 @@ nav {
 
 a {
   color: white !important;
+}
+
+view {
+  margin-left: 3rem;
+  font-size: 2rem;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.side-menu {
+  min-height: 90vh;
+  width: 225px;
+}
+
+.side-bar {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  min-width: 225px;
+  max-width: 225px;
+}
+
+.side-nav-link {
+  font-size: 1.2em;
+}
+
+.custom-card-img {
+  height: 286px !important;
 }
