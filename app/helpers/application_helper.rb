@@ -9,11 +9,14 @@ module ApplicationHelper
   end
 
   def display_avatar
+    avatar = ''
     if current_user&.avatar&.attached?
-      image_tag(url_for(current_user.avatar), class: 'avatar rounded-circle')
+     avatar << link_to(image_tag(url_for(current_user.avatar), class: 'avatar rounded-circle'), user_path(current_user))
     elsif current_user && !current_user.avatar.attached?
-      image_tag('user.png', class: 'avatar img-fluid')
+      avatar << link_to(image_tag('user.png', class: 'avatar img-fluid'), userpath(current_user))
     end
+    avatar << "<span class='ml-3 d-none d-md-inline text-white'>#{current_user.username } </span>" if current_user
+    avatar.html_safe
   end
 
   def display_side_nav
