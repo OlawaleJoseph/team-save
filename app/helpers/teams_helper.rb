@@ -4,7 +4,7 @@ module TeamsHelper
     src << if (expense && expense.teams.length > 1) && team.image.attached?
              image_tag(team.image, class: 'mx-auto img-fluid card-img-top custom-card-img')
            else
-             image_tag('broken-img.png', class: 'mx-auto card-img-top')
+             image_tag('broken-img.png', class: 'mx-auto custom-card-img')
            end
     src.html_safe
   end

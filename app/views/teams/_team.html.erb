@@ -1,0 +1,19 @@
+<div class="d-flex justify-content-center my-3 shadow p-2">
+  <div class='team-img-container'>
+    <%= link_to(image_tag(team.image, class: 'team-img'), team_path(team)) %>
+  </div>
+  <div class="card-body">
+      <div class='d-flex justify-content-between'>
+      <h3 class="card-title border-bottom pb-3 flex-1 mr-2"> <%= team.name %> </h3>
+      <%= form_with(url: "/teams/#{@team.id}/invite", class: 'invite-form form-inline' ) do |f|%>
+        <%= f.text_field :username, placeholder: 'Username', class: 'form-control' %>
+        <%= submit_tag("Invite", class: 'ml-1 btn btn-info')%>
+      <% end %>
+      </div>
+      <p class="card-text"> Expenses:  <%= team.expenses.size  %></p>
+      <span>
+        <%= link_to 'Delete Team', team_path(team) , method: :delete, class: 'btn btn-md btn-danger' %>
+        <%= link_to 'New Expense', new_expense_path, class: 'btn btn-md btn-primary' %>
+      </span>
+  </div>
+</div>

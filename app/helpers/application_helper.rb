@@ -11,11 +11,11 @@ module ApplicationHelper
   def display_avatar
     avatar = ''
     if current_user&.avatar&.attached?
-     avatar << link_to(image_tag(url_for(current_user.avatar), class: 'avatar rounded-circle'), user_path(current_user))
+      avatar << link_to(image_tag(url_for(current_user.avatar), class: 'avatar rounded-circle'), user_path(current_user))
     elsif current_user && !current_user.avatar.attached?
-      avatar << link_to(image_tag('user.png', class: 'avatar img-fluid'), userpath(current_user))
+      avatar << link_to(image_tag('user.png', class: 'avatar img-fluid rounded-circle'), user_path(current_user))
     end
-    avatar << "<span class='ml-3 d-none d-md-inline text-white'>#{current_user.username } </span>" if current_user
+    avatar << "<span class='ml-3 d-none d-md-inline text-white'>#{current_user.username} </span>" if current_user
     avatar.html_safe
   end
 
