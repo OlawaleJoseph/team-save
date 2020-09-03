@@ -55,7 +55,6 @@ RSpec.feature 'Users', type: :feature do
 
       sign_in user2
       visit '/me/invitations'
-
       expect(page).to have_content('Reject')
       click_link 'Reject'
       expect(page).not_to have_content('TEST')

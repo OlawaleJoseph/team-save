@@ -59,9 +59,14 @@ view {
 }
 
 .custom-card-img {
-  height: 286px !important;
+  height: 280px !important;
 }
 
 .invite-form {
-  width: 17em;
+  width: 20em;
+}
+
+.custom-card {
+  width: 18%;
+  margin: calc(2% / 4);
 }

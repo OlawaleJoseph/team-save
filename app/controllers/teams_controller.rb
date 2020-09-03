@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.where(creator_id: current_user.id).includes(:expenses, :members)
+    @teams = current_user.my_teams
   end
 
   def new
@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = current_user.my_teams
+    @team = Team.find(params[:id])
   end
 
   def destroy
