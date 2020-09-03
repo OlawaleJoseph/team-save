@@ -40,11 +40,10 @@ RSpec.feature 'Expenses', type: :feature do
 
     scenario 'Delete an expense' do
       create_expense person
-      visit expense_path(1)
+      visit expenses_path
 
       expect { click_link 'Delete' }.to change { Expense.count }.by(-1)
       expect(page.current_path).to eq(expenses_path)
-      expect(page).to have_no_content('test')
     end
   end
 end

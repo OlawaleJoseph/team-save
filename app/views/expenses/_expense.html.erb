@@ -1,0 +1,14 @@
+
+<div class="d-flex flex-sm-row flex-md-column shadow mx-3 my-2 custom-card">
+  <%= display_team_logo(expense.teams.first, expense) %>
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <p class="card-title"> <%= expense.name.upcase %> </p>
+      <p class="card-title">$ <%= expense.amount %> </p>
+    </div>
+    <p class="card-text"> Created On:  <%= expense.created_at %> </p>
+    <%= link_to 'Delete', expense_path(expense), class: 'btn btn-danger', method: :delete%>
+  </div>
+</div>
+
+

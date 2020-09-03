@@ -1,13 +1,10 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
 
-<%= @team.name.upcase%>
+<div class="mx-3">
+  <%= render partial: 'team', locals: { team: @team } %>
+</div>
 
-<%= form_with(url: "/teams/#{@team.id}/invite") do %>
-  <%= label_tag :username, "Username:" %>
-  <%= text_field_tag :username %>
-  <%= submit_tag("Invite", class: 'btn btn-primary')%>
-<% end %>
-
-<%= @team.name %>
-<%= link_to 'Delete', team_path(@team), method: :delete %>
+<div class="d-flex flex-sm-column flex-md-row flex-wrap">
+  <% @team.expenses.each do |expense| %>
+  <%= render partial: 'expenses/expense', locals: { expense: expense } %>
+  <% end %>
+</div>

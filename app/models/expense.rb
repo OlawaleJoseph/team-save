@@ -6,4 +6,6 @@ class Expense < ApplicationRecord
   validates :name, presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: { case_sensitive: false }
   validates :amount, presence: true
   validates_numericality_of :amount, greater_than_or_equal_to: 1
+
+  scope :desc, -> { includes(:author).order('created_at DESC') }
 end

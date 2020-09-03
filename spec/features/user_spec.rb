@@ -47,7 +47,7 @@ RSpec.feature 'Users', type: :feature do
 
       expect(page).to have_content('Accept')
       click_link 'Accept'
-      expect(page).to have_content('TEST')
+      expect(page).to have_content('test')
     end
 
     scenario 'Reject team invite' do
@@ -55,7 +55,6 @@ RSpec.feature 'Users', type: :feature do
 
       sign_in user2
       visit '/me/invitations'
-
       expect(page).to have_content('Reject')
       click_link 'Reject'
       expect(page).not_to have_content('TEST')

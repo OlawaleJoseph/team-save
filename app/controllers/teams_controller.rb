@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.where(creator_id: current_user.id).includes(:expenses, :members)
+    @teams = current_user.my_teams
   end
 
   def new
@@ -31,15 +31,24 @@ class TeamsController < ApplicationController
   end
 
   def invite
-    invitee = User.find_by!(username: params['username'])
     team = Team.find(params['team_id'])
+    if current_user.username == params['username']
+      flash[:alert] = 'You can not invite youself'
+      redirect_to team_path(team)
+      return
+    end
 
-    unless invitee.invited_teams.include?(team)
+    invitee = User.find_by!(username: params['username'])
+
+    if invitee.invited_teams.include?(team)
+      flash[:alert] = 'Cannot send multiple request to user'
+      redirect_to team_path(team)
+    else
       invitee.invited_teams << team
       flash[:success] = 'Invite Sent'
       redirect_to team_path(params[:team_id])
     end
-  rescue StandardError
+  rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'User does not exist'
     redirect_to team_path(params[:team_id])
   end

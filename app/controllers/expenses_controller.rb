@@ -1,6 +1,12 @@
 class ExpensesController < ApplicationController
+  before_action :check_user_expenses, only: [:show]
+
   def index
-    @expenses = Expense.includes(:author).where(author_id: current_user.id)
+    @expenses = current_user.expenses.desc.map { |expense| expense.teams.exists? }
+  end
+
+  def external
+    @expenses = current_user.expenses.desc.reject { |expense| expense.teams.exists? }
   end
 
   def new
@@ -33,5 +39,9 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:name, :amount, team_ids: [])
+  end
+
+  def check_user_expenses
+    return if current_user.expenses.empty?
   end
 end
