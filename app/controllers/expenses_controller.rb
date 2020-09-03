@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :check_user_expenses, only: [:show]
 
   def index
-    @expenses = current_user.expenses.desc.map { |expense| expense.teams.exists? }
+    @expenses = current_user.expenses.desc.select { |expense| expense.teams.exists? }
   end
 
   def external
