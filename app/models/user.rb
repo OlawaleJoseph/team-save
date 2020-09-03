@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def total_expenses
     expenses.map(&:amount).inject(:+)
   end
+
+  def invitations
+    team_members.includes(:team, :member).where(confirmed: false)
+  end
 end

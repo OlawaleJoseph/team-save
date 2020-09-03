@@ -31,17 +31,25 @@ class TeamsController < ApplicationController
   end
 
   def invite
-    invitee = User.find_by!(username: params['username'])
-    team = Team.find(params['team_id'])
+    begin
+      team = Team.find(params['team_id'])
+      if team.creator.id != current_user.id
+        flash.now[:error] = 'You are authorised to perform this operation'
+      elsif current_user.username == params['username']
+        flash.now[:error] = 'You can not invite youself'
+      end
 
-    unless invitee.invited_teams.include?(team)
-      invitee.invited_teams << team
-      flash[:success] = 'Invite Sent'
+      invitee = User.find_by!(username: params['username'])
+
+      unless invitee.invited_teams.include?(team)
+        invitee.invited_teams << team
+        flash[:success] = 'Invite Sent'
+        redirect_to team_path(params[:team_id])
+      end
+    rescue StandardError
+      flash[:alert] = 'User does not exist'
       redirect_to team_path(params[:team_id])
     end
-  rescue StandardError
-    flash[:alert] = 'User does not exist'
-    redirect_to team_path(params[:team_id])
   end
 
   def team_params
