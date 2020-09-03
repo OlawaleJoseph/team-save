@@ -1,0 +1,19 @@
+.landing {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg') no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  height: 90vh;
+  position: relative;
+}
+
+.welcome {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dark-btn {
+  background-color: #1f446e !important;
+}

@@ -1,9 +1,24 @@
-<h1>Users#show</h1>
-<p>Dashboard</p>
-<% if @user.avatar.attached? %>
-  <p>Image Here</p>
-  <img src="<%= url_for(@user.avatar) %>" alt="">
-<% else %>
-<p>No Image</p>
-  <%= @user %>
-<% end %>
+<%= content_tag :view, 'Dashboard>', class: 'text-success' %>
+<div class="d-flex justify-content-between align-items-center pr-5 mx-5">
+  <p class='mb-0 display-4 '>Total Amount: <%= @user.total_expenses %> </p>
+  <%= link_to 'Add New', new_expense_path, class: 'btn btn-info btn-lg' %>
+</div>
+<div class='py-3 px-2 mt-3 mr-5'>
+  <div class='bg-light mx-4'>
+    <div class="d-flex flex-column flex-md-row flex-wrap">
+      <% @user.expenses.each do |expense| %>
+        <div class="card shadow mx-3 my-2">
+          <%= display_team_logo(expense.teams.first, expense) %>
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <p class="card-title"> <%= expense.name.upcase %> </p>
+              <p class="card-title"> <%= expense.amount %> </p>
+            </div>
+            <p class="card-text">Created On:  <%= expense.created_at %> </p>
+            <%= link_to 'Delete', expense_path(expense), class: 'btn btn-danger', method: :delete%>
+          </div>
+        </div>
+      <% end%>
+    </div>
+  </div>
+</div>

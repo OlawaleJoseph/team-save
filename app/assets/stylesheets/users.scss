@@ -7,3 +7,14 @@ $breakpoint-tablet: 768px;
   max-width: 450px;
   margin: 0 auto;
 }
+
+.avatar-container {
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card {
+  max-width: 25%;
+  min-width: 16rem !important;
+}
