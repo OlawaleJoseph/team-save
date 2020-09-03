@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   def invitation
     @invitations = current_user.invitations
   end
-  
+
   def accept_invitation
     invitation = current_user.team_members.find(params[:invitation_id])
     invitation.update(confirmed: true)

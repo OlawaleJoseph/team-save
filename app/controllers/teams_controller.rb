@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = current_user.my_teams
   end
 
   def destroy
@@ -31,25 +31,26 @@ class TeamsController < ApplicationController
   end
 
   def invite
-    begin
-      team = Team.find(params['team_id'])
-      if team.creator.id != current_user.id
-        flash.now[:error] = 'You are authorised to perform this operation'
-      elsif current_user.username == params['username']
-        flash.now[:error] = 'You can not invite youself'
-      end
+    team = Team.find(params['team_id'])
+    if current_user.username == params['username']
+      flash[:alert] = 'You can not invite youself'
+      redirect_to team_path(team)
+      return
+    end
 
-      invitee = User.find_by!(username: params['username'])
+    invitee = User.find_by!(username: params['username'])
 
-      unless invitee.invited_teams.include?(team)
-        invitee.invited_teams << team
-        flash[:success] = 'Invite Sent'
-        redirect_to team_path(params[:team_id])
-      end
-    rescue StandardError
-      flash[:alert] = 'User does not exist'
+    if invitee.invited_teams.include?(team)
+      flash[:alert] = 'Cannot send multiple request to user'
+      redirect_to team_path(team)
+    else
+      invitee.invited_teams << team
+      flash[:success] = 'Invite Sent'
       redirect_to team_path(params[:team_id])
     end
+  rescue ActiveRecord::RecordNotFound
+    flash[:alert] = 'User does not exist'
+    redirect_to team_path(params[:team_id])
   end
 
   def team_params

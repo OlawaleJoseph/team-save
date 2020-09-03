@@ -50,7 +50,7 @@ RSpec.feature 'Teams', type: :feature do
 
       expect { click_link 'Delete' }.to change { Team.count }.by(-1)
       expect(page.current_path).to eq(teams_path)
-      expect(page).to have_no_content('test')
+      expect(page).to have_no_content('MY TEAMS')
     end
 
     scenario 'Send an Invite' do

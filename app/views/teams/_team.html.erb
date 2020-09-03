@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
       <div class='d-flex justify-content-between'>
-      <h3 class="card-title border-bottom pb-3 flex-1 mr-2"> <%= team.name %> </h3>
+      <h3 class="card-title border-bottom pb-3 flex-1 mr-2"> <%= team.name.capitalize %> </h3>
       <%= form_with(url: "/teams/#{team.id}/invite", class: 'invite-form form-inline' ) do |f|%>
         <%= f.text_field :username, placeholder: 'Username', class: 'form-control' %>
         <%= submit_tag("Invite", class: 'ml-1 btn btn-info')%>
