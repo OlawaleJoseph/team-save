@@ -1,7 +1,5 @@
 <%= content_tag :view, 'Invitations>', class: 'section-title font-weight-bold text-uppercase' %>
 
 <div class="mx-3 mt-5">
-  <% @invitations.each do |invitation| %>
-    <%= display_invitations %>
-  <% end %>
+  <%= display_invitation(@invitations) %>
 </div>

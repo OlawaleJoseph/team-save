@@ -30,10 +30,10 @@ module ApplicationHelper
     </div>".html_safe
   end
 
-  def render_expense_collection(collection)
+  def render_expense_collection(collection, path)
     out = ""
     collection.each do |item|
-      out << render(partial: 'expense', locals: { expense: item })
+      out << render(partial: path, locals: { expense: item })
     end
     out.html_safe
   end

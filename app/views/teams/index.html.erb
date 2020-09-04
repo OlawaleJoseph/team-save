@@ -1,11 +1,7 @@
 <%= content_tag :div, 'My Teams>', class: 'section-title font-weight-bold text-uppercase bg-white w-100, p-3' %>
 
 <div class="p-4">
-    <% @teams.each do |team| %>
-      <div>
-        <%= render partial: 'team', locals: { team: team } %>
-      </div>
-    <% end %>
+    <%= render_team_collection(@teams) %>
     <div class="custom-btn p-4 ">
       <%= link_to 'New Team', new_team_path, class: 'btn btn-lg custom-btn border border-white w-100' %>
     </div>

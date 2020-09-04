@@ -8,4 +8,12 @@ module TeamsHelper
            end
     src.html_safe
   end
+
+  def render_team_collection(collection)
+    out = ""
+    collection.each do |item|
+      out << render(partial: 'team', locals: { team: item })
+    end
+    out.html_safe
+  end
 end

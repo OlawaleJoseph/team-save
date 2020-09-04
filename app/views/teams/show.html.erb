@@ -4,7 +4,5 @@
 </div>
 
 <div class="d-flex flex-sm-column flex-md-row flex-wrap">
-  <% @team.expenses.each do |expense| %>
-  <%= render partial: 'expenses/expense', locals: { expense: expense } %>
-  <% end %>
+  <%= render_expense_collection(@team.expenses, 'expenses/expense')%>
 </div>

@@ -15,4 +15,12 @@ module UsersHelper
     end
     output.html_safe
   end
+
+  def display_invitation(collection)
+    out = ""
+    collection.each do |item|
+      out << display_invitations
+    end
+    out.html_safe
+  end
 end
