@@ -3,11 +3,11 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[show destroy]
 
   def index
-    @expenses = current_user.expenses.desc.select { |expense| expense.teams.exists? }
+    @expenses = current_user.expenses.desc_team
   end
 
   def external
-    @expenses = current_user.expenses.desc.reject { |expense| expense.teams.exists? }
+    @expenses = current_user.expenses.desc_no_team
   end
 
   def new

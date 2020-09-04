@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def render_expense_collection(collection, path)
-    out = ""
+    out = ''
     collection.each do |item|
       out << render(partial: path, locals: { expense: item })
     end

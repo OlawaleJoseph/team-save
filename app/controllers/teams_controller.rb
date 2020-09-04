@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :set_team, only: %i[show destroy]
   def index
     @teams = []
     @teams.concat(current_user.my_teams, current_user.invited_teams)
@@ -18,12 +19,9 @@ class TeamsController < ApplicationController
     end
   end
 
-  def show
-    @team = Team.find(params[:id])
-  end
+  def show; end
 
   def destroy
-    @team = Team.find(params[:id])
     if @team
       @team.destroy
       flash[:success] = 'Team deleted successfully'
@@ -57,6 +55,10 @@ class TeamsController < ApplicationController
   end
 
   private
+
+  def set_team
+    @team = Team.find(params[:id])
+  end
 
   def team_params
     params.require(:team).permit(:name, :image)

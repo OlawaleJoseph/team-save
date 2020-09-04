@@ -10,7 +10,7 @@ module TeamsHelper
   end
 
   def render_team_collection(collection)
-    out = ""
+    out = ''
     collection.each do |item|
       out << render(partial: 'team', locals: { team: item })
     end
