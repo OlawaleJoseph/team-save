@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   def index
     @teams = []
-    @teams.concat(current_user.my_teams, current_user.invited_teams )
+    @teams.concat(current_user.my_teams, current_user.invited_teams)
   end
 
   def new
