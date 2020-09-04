@@ -6,7 +6,8 @@
       <p class="card-title"> <%= expense.name.upcase %> </p>
       <p class="card-title">$ <%= expense.amount %> </p>
     </div>
-    <p class="card-text"> Created On:  <%= expense.created_at.to_formatted_s(:short) %> </p>
+    <p class="text-capitalize text-muted">By: <%=expense.author.username%></p>
+    <p class="card-text text-muted"> <%= expense.created_at.to_formatted_s(:long) %> </p>
     <%= link_to 'Delete', expense_path(expense), class: 'btn btn-danger', method: :delete%>
   </div>
 </div>
