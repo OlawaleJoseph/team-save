@@ -26,12 +26,9 @@ class ExpensesController < ApplicationController
   end
 
   def show
-    @expense = Expense.find(params[:id])
   end
 
-  def destroy
-    @expense = Expense.find(params[:id])
-    
+  def destroy    
     if @expense
       @expense.destroy
       flash[:notice] = 'Expense deleted successfully'
