@@ -54,6 +54,8 @@ class TeamsController < ApplicationController
     redirect_to team_path(params[:team_id])
   end
 
+  private
+  
   def team_params
     params.require(:team).permit(:name, :image)
   end
