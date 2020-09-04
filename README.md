@@ -1,87 +1,89 @@
 [![Build Status](https://travis-ci.org/OlawaleJoseph/team-save.svg?branch=develop)](https://travis-ci.org/OlawaleJoseph/team-save) [![Maintainability](https://api.codeclimate.com/v1/badges/7d3d0edb9439320812f5/maintainability)](https://codeclimate.com/github/OlawaleJoseph/team-save/maintainability)
 
-# Ruby on Rails Capstone Project: Group your expenses
+![screenshot](app/assets/images/ss.png)
+![screenshot](app/assets/images/ss1.png)
 
-  - This is the capstone project of the Microverse Ruby on Rails curriculum. This capstone project is completed as part of the Microverse remote software developement curriculum using the pair programming approach.
+# README
+Ruby on Rails Capstone Project: Group your expenses
 
-  - In this project I created an expense log app where users can create an account with their username and add expenses which can be grouped and ungrouped into the names of their choice.
+- This is the capstone project of the Microverse Ruby on Rails curriculum. This capstone project is completed as part of the Microverse remote software developement curriculum.
 
-  - Users can also view each expenses in each group.
+- In this project I created an MVP for tracking expenses. 
 
-  - Users can track the total amount of their expenses.
+## Features
 
-  - This project is built with the MVP approach.
+- Users can register and log in to the application
 
-  Some of the advanced concepts explored in this project includes.
-  - Working with advanced associations, many-to-many relationships.
-  - Basic Authentication using just username
-  - Used RSpec as the test suit with the help of shoulda-matchers and capybara for effective testing. Unit, Functional and integration testing was done.
+- Users can create a group for expenses
 
-  ![screenshot](./app/assets/images/group-it.png)
+- Users can create a expenses for single and multiple groups
 
-## Built With
-  - Ruby,
-  - Rails
-  - HTML
-  - CSS
-  - Bootstrap
-  - Rspec
+- Users can create a expense without a group
+
+- Users can Invite others into the group
+
+- Invited persons can see the invitation and respond as they please.
+
+### AIM
+- Understanding how associations work in rails
+- Building a mini authentication system
+- Practicing TDD
+- Understanding the assest pipeline when deploying apps 
 
 ## Live Demo
 
-  - [Live Demo Link](https://group-it-capstone.herokuapp.com)
+- [Live Demo Link](https://limitless-coast-23786.herokuapp.com)
+
+## Built With
+- Rails
+- Ruby,
+- HTML
+- CSS
+- ERB
+- Bootstrap
+- Rspec
 
 ### Prerequisites
 
-  - Ruby: 2.6.5 Rails: 6.0.3.2
+- Ruby: 2.7.1 Rails: 6.0.3.2
 
 ### Install and Setup
 
-  - Clone repo to your local
-    - git clone https://github.com/somoye123/Group-it.git
-    - cd Group-it
+- Clone repo to your local `git clone git@github.com:OlawaleJoseph/team-save.git`
+- cd into the cloned repo
+- OPen a terminal in the root of the app
+- Run `yarn install --check-files`
+- Run `bundle install`
+- Run `rails db:migrate`
+- Run Start up you server with `rails s`
+- Open http://localhost:3000/ in your browser.
 
-  - Install gems with:
-    - bundle install
+### Testing
+- Open a terminal and run `rspec`.
 
-  - Setup database with:
-    - rails db:migrate
+## Author
 
-### Usage
+👤 **Adedeko Olawale**
 
-  - Start server with:
-    - rails server
+- Github: [@OlawaleJoseph](https://github.com/OlawaleJoseph)
+- Twitter: [@javanode123](https://twitter.com/javanode123)
+- Linkedin: [olawale-adedeko](http://www.linkedin.com/in/olawale-adedeko)
 
-    - Open http://localhost:3000/ in your browser.
+## 🤝 Contributing
 
-### Run tests
-  - Run:
-    - rpsec
+Contributions, issues and feature requests are welcome!
 
+Feel free to check the [issues page](https://github.com/OlawaleJoseph/team-save/issues).
 
-yarn install --check-files
+## Show your support
 
-# README
+Give a ⭐️ if you like this project!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Acknowledgments
 
-Things you may want to cover:
+- Microverse
+- google
+- Stack-overflow
+[Design By: Gregoire Vella on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=).
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 📝 License
