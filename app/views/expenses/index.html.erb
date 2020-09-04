@@ -5,9 +5,7 @@
 <div class='py-3 mt-3 mr-5'>
   <div class='bg-light mx-4'>
     <div class="row flex-column flex-md-row flex-wrap">
-      <% @expenses.each do |expense| %>
-        <%= render partial: 'expense', locals: {expense: expense} %>
-      <% end%>
+      <%= render_expense_collection(@expenses) %>
     </div>
       <div class="custom-btn p-4 ">
       <%= link_to 'Add New', new_expense_path, class: 'btn btn-lg custom-btn border border-white w-100' %>

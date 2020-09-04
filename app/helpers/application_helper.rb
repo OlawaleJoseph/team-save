@@ -29,4 +29,12 @@ module ApplicationHelper
       #{link_to('<i class="fas fa-user-plus pr-1"></i>Invitations'.html_safe, '/me/invitations', class: 'nav-item nav-link')}
     </div>".html_safe
   end
+
+  def render_expense_collection(collection)
+    out = ""
+    collection.each do |item|
+      out << render(partial: 'expense', locals: { expense: item })
+    end
+    out.html_safe
+  end
 end
