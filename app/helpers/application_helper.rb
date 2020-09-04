@@ -19,21 +19,6 @@ module ApplicationHelper
     avatar.html_safe
   end
 
-  def display_side_nav
-    unless (current_user && !current_page?(root_path)) && (current_user && !current_page?(new_user_path)) && (current_user && !current_page?(new_session_path))
-      return
-    end
-
-    "<div class='pr-0 side-menu d-none d-md-block'>
-      <div class='list-group side-bar'>
-          #{link_to('<i class="far fa-gem"></i> My Expenses'.html_safe, expenses_path, class: 'nav-link side-nav-link')}
-          #{link_to('<i class="fas fa-money-bill"></i> External Expenses'.html_safe, external_expenses_path, class: 'nav-link side-nav-link')}
-          #{link_to('<i class="fas fa-users"></i> Teams'.html_safe, teams_path, class: 'nav-link side-nav-link')}
-          #{link_to('<i class="fas fa-user-plus"></i> Invitations'.html_safe, '/me/invitations', class: 'nav-link side-nav-link')}
-      </div>
-    </div>".html_safe
-  end
-
   def display_top_nav
     return unless current_user
 
