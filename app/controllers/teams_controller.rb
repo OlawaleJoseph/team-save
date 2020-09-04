@@ -27,11 +27,10 @@ class TeamsController < ApplicationController
     if @team
       @team.destroy
       flash[:success] = 'Team deleted successfully'
-      redirect_to teams_path
     else
       flash[:alert] = 'Team not found'
-      redirect_to teams_path
     end
+    redirect_to teams_path
   end
 
   def invite
