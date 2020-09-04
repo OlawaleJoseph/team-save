@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :check_user_expenses, only: [:show]
+  before_action :set_expense, only: [:show, :destroy]
 
   def index
     @expenses = current_user.expenses.desc.select { |expense| expense.teams.exists? }
@@ -37,11 +38,16 @@ class ExpensesController < ApplicationController
     redirect_to expenses_path
   end
 
+  private
   def expense_params
     params.require(:expense).permit(:name, :amount, team_ids: [])
   end
 
   def check_user_expenses
     return if current_user.expenses.empty?
+  end
+
+  def set_expense
+    @expense = Expense.find(params[:id])
   end
 end
