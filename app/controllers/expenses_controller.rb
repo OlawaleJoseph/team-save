@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :check_user_expenses, only: [:show]
-  before_action :set_expense, only: [:show, :destroy]
+  before_action :set_expense, only: %i[show destroy]
 
   def index
     @expenses = current_user.expenses.desc.select { |expense| expense.teams.exists? }
@@ -25,10 +25,9 @@ class ExpensesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def destroy    
+  def destroy
     if @expense
       @expense.destroy
       flash[:notice] = 'Expense deleted successfully'
@@ -37,10 +36,10 @@ class ExpensesController < ApplicationController
       flash[:alert] = 'Expense not found'
       redirect_to expenses_path
     end
-
   end
 
   private
+
   def expense_params
     params.require(:expense).permit(:name, :amount, team_ids: [])
   end

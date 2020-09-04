@@ -37,10 +37,30 @@ RSpec.feature 'Teams', type: :feature do
   end
 
   context 'Team' do
+    let(:invitee) { create :user, username: 'invitee' }
     scenario 'Show a team' do
       create_team person
+      visit teams_path(1)
 
       expect(page).to have_content('test')
+    end
+
+    scenario 'Send Invite' do
+      create_team person
+      visit teams_path(1)
+
+      fill_in 'username', with: invitee.username
+
+      expect { click_button 'Invite' }.to(change { TeamMember.count }.by(1))
+    end
+
+    scenario 'Should not send Invite' do
+      create_team person
+      visit teams_path(1)
+
+      fill_in 'username', with: 'test'
+
+      expect { click_button 'Invite' }.not_to(change { TeamMember.count })
     end
 
     scenario 'Delete a team' do

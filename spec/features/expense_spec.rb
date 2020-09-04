@@ -45,7 +45,6 @@ RSpec.feature 'Expenses', type: :feature do
       expect(page.current_path).to eq(new_session_path)
     end
 
-
     scenario 'Delete an expense' do
       create_expense person
       visit external_expenses_path
