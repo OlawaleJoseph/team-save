@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user
 
   def current_user
-    User.where(id: session[:user_id]).first
+    User.includes(:expenses, :my_teams, :invited_teams).where(id: session[:user_id]).first
   end
 
   def authenticate_user
