@@ -31,11 +31,16 @@ class ExpensesController < ApplicationController
 
   def destroy
     @expense = Expense.find(params[:id])
-    return unless @expense
+    
+    if @expense
+      @expense.destroy
+      flash[:notice] = 'Expense deleted successfully'
+      redirect_to expenses_path
+    else
+      flash[:alert] = 'Expense not found'
+      redirect_to expenses_path
+    end
 
-    @expense.destroy
-    flash[:notice] = 'Expense deleted successfully'
-    redirect_to expenses_path
   end
 
   private
