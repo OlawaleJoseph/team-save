@@ -14,7 +14,7 @@ class User < ApplicationRecord
     expenses.map(&:amount).inject(:+)
   end
 
-  def all_teams 
+  def all_teams
     [].concat(invited_teams, my_teams)
   end
 
