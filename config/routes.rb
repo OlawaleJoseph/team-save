@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   post 'teams/:team_id/invite', to: 'teams#invite'
   get '/me/invitations', to: 'users#invitation'
   get '/external/expenses', to: 'expenses#external'
-  put '/me/:invitation_id/accept', to: 'users#accept_invitation'
-  put '/me/:invitation_id/reject', to: 'users#reject_invitation'
+  put '/teams/:team_id/invitations/:invitation_id/accept', to: 'users#accept_invitation'
+  put '/teams/:team_id/invitations/:invitation_id/reject', to: 'users#reject_invitation'
 end
