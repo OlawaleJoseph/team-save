@@ -3,8 +3,8 @@
 <div class="form-container">
   <%= simple_form_for @expense do |f| %>
     <%= f.input :name %>
-    <%= f.input :amount %>
-    <%= f.association :teams, as: :check_boxes, class: 'form-check-input' %>
+    <%= f.input :amount, as: :integer %>
+    <%= f.input :team_ids, collection: @teams, as: :check_boxes, label: 'Teams' %>
     <%= f.button :submit, "Create", class: 'btn-lg btn-success w-100' %>
   <% end %>
 </div>

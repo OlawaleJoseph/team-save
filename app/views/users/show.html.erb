@@ -1,4 +1,4 @@
-<%= content_tag :view, 'Dashboard>', class: 'text-success' %>
+<%= content_tag :view, 'Dashboard>', class: 'section-title font-weight-bold text-uppercase' %>
 <div class="d-flex justify-content-between align-items-center pr-5 mx-5">
   <p class='mb-0 display-4 '>Total Amount: <%= @user.total_expenses %> </p>
   <%= link_to 'Add New', new_expense_path, class: 'btn btn-info btn-lg' %>

@@ -41,6 +41,7 @@ view {
 .side-menu {
   min-height: 90vh;
   width: 225px;
+  background-color: #25476d;
 }
 
 .side-bar {
@@ -69,4 +70,13 @@ view {
 .custom-card {
   width: 18%;
   margin: calc(2% / 4);
+}
+
+.price {
+  color: #5e5656;
+  font-size: 2rem;
+}
+
+.section-title {
+  color: #6b8eb7;
 }
