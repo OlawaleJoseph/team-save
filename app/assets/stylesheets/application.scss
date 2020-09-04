@@ -20,9 +20,8 @@
   margin-right: auto;
 }
 
-nav {
-  height: 10vh;
-  background-color: #3778c2;
+.custom-nav {
+  background-color: #3778c2 !important;
 }
 
 a {
@@ -38,30 +37,9 @@ view {
   flex: 1;
 }
 
-.side-menu {
-  min-height: 90vh;
-  width: 225px;
-  background-color: #25476d;
-}
-
-.side-bar {
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-  min-width: 225px;
-  max-width: 225px;
-}
-
-.side-nav-link {
-  font-size: 1.2em;
-}
-
 .custom-card-img {
-  height: 280px !important;
-  width: 40%;
+  height: 150px !important;
+  width: 150px;
 }
 
 .invite-form {
@@ -84,6 +62,10 @@ view {
 
 .section-title {
   color: #6b8eb7;
+}
+
+.grey-bg {
+  background-color: #f1f3f2;
 }
 
 @media screen and (min-width: 768px) {
