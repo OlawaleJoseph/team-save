@@ -11,6 +11,7 @@
       <% end %>
       </div>
       <p class="card-text"> Expenses:  <%= team.expenses.size  %></p>
+      <p class="card-text border-bottom pb-2"> Created On: <%= team.created_at.to_s(:long)  %></p>
       <span>
         <%= link_to 'Delete Team', team_path(team) , method: :delete, class: 'btn btn-md btn-danger' %>
         <%= link_to 'New Expense', new_expense_path, class: 'btn btn-md btn-primary' %>
