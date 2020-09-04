@@ -1,13 +1,13 @@
 
-<div class="col-lg-2 col-md-3 col-sm-12 d-flex flex-sm-row flex-md-column shadow mx-3 my-2 custom-card">
+<div class="d-flex shadow mx-3 my-2 custom-card p-2">
   <%= display_team_logo(expense.teams.first, expense) %>
   <div class="card-body">
-    <div class="d-flex justify-content-between">
-      <p class="card-title"> <%= expense.name.upcase %> </p>
-      <p class="card-title">$ <%= expense.amount %> </p>
+    <div class="d-flex justify-content-between pb-1 light-border-bottom ">
+      <p class="card-title light-text mb-0 "> <%= expense.name %> </p>
+      <p class="card-title text-color font-weight-bold">$ <%= expense.amount %> </p>
     </div>
-    <p class="text-capitalize text-muted">By: <%=expense.author.username%></p>
-    <p class="card-text text-muted"> <%= expense.created_at.to_formatted_s(:long) %> </p>
+    <p class="text-capitalize pt-3 light-text">By: <%=expense.author.username%></p>
+    <p class="card-text light-text mb-3"> <%= expense.created_at.to_formatted_s(:long) %> </p>
     <%= link_to 'Delete', expense_path(expense), class: 'btn btn-danger', method: :delete%>
   </div>
 </div>

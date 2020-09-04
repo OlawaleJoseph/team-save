@@ -14,6 +14,14 @@
  *= require_self
  */
 
+.text-color {
+  color: #434b54;
+}
+
+.light-text {
+  color: #717983;
+}
+
 .wrapper {
   max-width: 2100px;
   margin-left: auto;
@@ -38,7 +46,6 @@ view {
 }
 
 .custom-card-img {
-  height: 150px !important;
   width: 150px;
 }
 
@@ -48,7 +55,11 @@ view {
 
 .custom-card {
   width: 100%;
-  margin: calc(2% / 4);
+  margin: 10px;
+}
+
+.light-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .price {
@@ -70,11 +81,7 @@ view {
 
 @media screen and (min-width: 768px) {
   .custom-card {
-    width: 100%;
-    margin: calc(2% / 4);
-  }
-
-  .custom-card-img {
-    width: 100%;
+    width: 450px;
+    margin: 10px;
   }
 }
