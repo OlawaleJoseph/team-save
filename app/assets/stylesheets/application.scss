@@ -61,6 +61,7 @@ view {
 
 .custom-card-img {
   height: 280px !important;
+  width: 40%;
 }
 
 .invite-form {
@@ -68,7 +69,7 @@ view {
 }
 
 .custom-card {
-  width: 18%;
+  width: 100%;
   margin: calc(2% / 4);
 }
 
@@ -77,6 +78,21 @@ view {
   font-size: 2rem;
 }
 
+.custom-btn {
+  background-color: #5fb523;
+}
+
 .section-title {
   color: #6b8eb7;
+}
+
+@media screen and (min-width: 768px) {
+  .custom-card {
+    width: 100%;
+    margin: calc(2% / 4);
+  }
+
+  .custom-card-img {
+    width: 100%;
+  }
 }

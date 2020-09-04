@@ -8,6 +8,8 @@
     <div>
       <%= render partial: 'team', locals: { team: team } %>
     </div>
-    <%= link_to 'New Team', new_team_path, class: 'btn btn-lg btn-success w-75' %>
     <% end %>
+    <div class="custom-btn p-4 ">
+      <%= link_to 'New Team', new_team_path, class: 'btn btn-lg custom-btn border border-white w-100' %>
+    </div>
 </div>
