@@ -24,11 +24,14 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
-    return unless @team
-
-    @team.destroy
-    flash[:notice] = 'Expense deleted successfully'
-    redirect_to teams_path
+    if @team
+      @team.destroy
+      flash[:success] = 'Team deleted successfully'
+      redirect_to teams_path
+    else
+      flash[:alert] = 'Team not found'
+      redirect_to teams_path
+    end
   end
 
   def invite
