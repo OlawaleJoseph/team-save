@@ -12,7 +12,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = current_user.expenses.build
-    @teams = current_user.my_teams
+    @teams = current_user.all_teams
   end
 
   def create

@@ -14,6 +14,10 @@ class User < ApplicationRecord
     expenses.map(&:amount).inject(:+)
   end
 
+  def all_teams 
+    [].concat(invited_teams, my_teams)
+  end
+
   def invitations
     team_members.includes(:team, :member).where(confirmed: false)
   end
