@@ -54,6 +54,7 @@ Ruby on Rails Capstone Project: Group your expenses
 - OPen a terminal in the root of the app
 - Run `yarn install --check-files`
 - Run `bundle install`
+- Run `rails db:reset`
 - Run `rails db:migrate`
 - Run Start up you server with `rails s`
 - Open http://localhost:3000/ in your browser.

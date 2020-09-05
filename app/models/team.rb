@@ -10,4 +10,8 @@ class Team < ApplicationRecord
   validates_presence_of :image
 
   scope :asc, -> { order('name ASC') }
+  
+  def total_expenses
+    expenses.map(&:amount).inject(:+)
+  end
 end

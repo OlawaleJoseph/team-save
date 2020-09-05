@@ -24,8 +24,8 @@ module ApplicationHelper
 
     "<div class='d-flex align-items-center'>
       #{link_to('<i class="far fa-gem pr-1"></i>  My Expenses '.html_safe, expenses_path, class: 'nav-item nav-link')}
-      #{link_to('<i class="fas fa-money-bill pr-1"></i> External Expenses'.html_safe, external_expenses_path, class: 'nav-item nav-link')}
-      #{link_to('<i class="fas fa-users pr-1"></i> Teams'.html_safe, teams_path, class: 'nav-item nav-link')}
+      #{link_to('<i class="fas fa-money-bill pr-1"></i> My External Expenses'.html_safe, external_expenses_path, class: 'nav-item nav-link')}
+      #{link_to('<i class="fas fa-users pr-1"></i> My Teams'.html_safe, teams_path, class: 'nav-item nav-link')}
       #{link_to('<i class="fas fa-user-plus pr-1"></i>Invitations'.html_safe, '/me/invitations', class: 'nav-item nav-link')}
     </div>".html_safe
   end

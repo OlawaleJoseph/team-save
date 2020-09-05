@@ -1,4 +1,4 @@
-
+<p class='mb-0 price p-4 shadow bg-white w-100'>Total Amount: <span class='float-right'> <%= number_to_currency(@team.total_expenses) || 0 %> </span></p>
 <div class="mx-3">
   <%= render partial: 'team', locals: { team: @team } %>
 </div>
