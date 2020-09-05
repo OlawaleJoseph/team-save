@@ -10,7 +10,7 @@ RSpec.feature 'Teams', type: :feature do
       expect(page.current_path).to eq(new_session_path)
     end
 
-    scenario 'Validate user input' do
+    scenario 'Should not create a team with invalid input' do
       sign_in person
 
       visit new_team_path
@@ -21,14 +21,14 @@ RSpec.feature 'Teams', type: :feature do
       expect(page.current_path).to eq(teams_path)
     end
 
-    scenario 'valid parameters given' do
+    scenario 'Shoud Create a team' do
       expect { create_team person }.to change { Team.count }.by(1)
       expect(Team.last.creator.id).to eq(person.id)
       expect(page.current_path).to eq('/teams')
       expect(page).to have_content('My Teams')
     end
 
-    scenario 'unique team name' do
+    scenario 'Should not create duplicate teams' do
       create_team person
 
       expect { create_team person }.not_to(change { Team.count })
@@ -37,10 +37,30 @@ RSpec.feature 'Teams', type: :feature do
   end
 
   context 'Team' do
+    let(:invitee) { create :user, username: 'invitee' }
     scenario 'Show a team' do
       create_team person
+      visit teams_path(1)
 
       expect(page).to have_content('test')
+    end
+
+    scenario 'Send Invite' do
+      create_team person
+      visit teams_path(1)
+
+      fill_in 'username', with: invitee.username
+
+      expect { click_button 'Invite' }.to(change { TeamMember.count }.by(1))
+    end
+
+    scenario 'Should not send Invite' do
+      create_team person
+      visit teams_path(1)
+
+      fill_in 'username', with: 'test'
+
+      expect { click_button 'Invite' }.not_to(change { TeamMember.count })
     end
 
     scenario 'Delete a team' do

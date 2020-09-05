@@ -10,28 +10,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='grey-bg'>
     <div class="wrapper">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <%= link_to 'T|S', root_path, class:"navbar-brand logo" %>
-          </div>
-          <div class='d-flex align-items-center'>
-            <%= display_top_nav %>
+      <nav class="navbar navbar-expand-lg navbar-light custom-nav">
+        <a class="navbar-brand" href="#">T|S</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <div class='d-flex justify-content-stretch align-items-center'>
+          <%= display_top_nav %>
             <div>
-              <%= display_avatar %>
-            </div>
+            <%= display_avatar %>
             <%= display_nav_links %>
+            </div>
           </div>
         </div>
       </nav>
-      <div class="d-flex">
-        <%= display_side_nav %>
-        <div class="flex-1">
-          <%= yield :view %>
-          <%= yield %>
-        </div>
+      <div>
+        <%= yield %>
       </div>
     
     <% unless flash.empty? %>

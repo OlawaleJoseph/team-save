@@ -8,4 +8,8 @@ class Expense < ApplicationRecord
   validates_numericality_of :amount, greater_than_or_equal_to: 1
 
   scope :desc, -> { includes(:author).order('created_at DESC') }
+
+  scope :desc_team, -> { desc.select { |expense| expense.teams.exists? } }
+
+  scope :desc_no_team, -> { desc.reject { |expense| expense.teams.exists? } }
 end

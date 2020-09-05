@@ -10,7 +10,7 @@ RSpec.feature 'Expenses', type: :feature do
       expect(page.current_path).to eq(new_session_path)
     end
 
-    scenario 'Validate user input' do
+    scenario 'Should not create expense when invalid input is given' do
       sign_in person
 
       visit new_expense_path
@@ -22,7 +22,7 @@ RSpec.feature 'Expenses', type: :feature do
       expect(page).to have_content('Name is too short (minimum is 2 characters)')
     end
 
-    scenario 'valid parameters given' do
+    scenario 'Create Expense with valid parameters' do
       expect { create_expense person }.to change { Expense.count }.by(1)
       expect(Expense.last.id).to eq(person.id)
       expect(page.current_path).to eq(expenses_path)
@@ -30,12 +30,19 @@ RSpec.feature 'Expenses', type: :feature do
     end
   end
 
-  context 'Single Expense' do
-    scenario 'Show an expense' do
+  context 'External Expenses' do
+    scenario 'Show' do
       create_expense person
       visit external_expenses_path
 
       expect(page).to have_content('test')
+    end
+
+    scenario 'Should not display to guest users' do
+      visit external_expenses_path
+
+      expect(page).to_not have_content('test')
+      expect(page.current_path).to eq(new_session_path)
     end
 
     scenario 'Delete an expense' do

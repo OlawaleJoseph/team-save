@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Welcome #{user.first_name}"
-      redirect_to user_path(user)
+      redirect_to expenses_path
     else
       flash.now[:alert] = 'Invalid username'
       render :new

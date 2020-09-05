@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    redirect_to expenses_path
   end
 
   def invitation
@@ -30,14 +30,14 @@ class UsersController < ApplicationController
   end
 
   def accept_invitation
-    invitation = current_user.team_members.find(params[:invitation_id])
+    invitation = find_invite
     invitation.update(confirmed: true)
     flash[:success] = 'You have been added'
     redirect_to team_path(invitation.team_id)
   end
 
   def reject_invitation
-    invitation = current_user.team_members.find(params[:invitation_id])
+    invitation = find_invite
     invitation.destroy
     flash[:success] = 'Invitation has been rejected'
     redirect_to '/me/invitations'
@@ -47,5 +47,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :username, :avatar)
+  end
+
+  def find_invite
+    current_user.team_members.find(params[:invitation_id])
   end
 end

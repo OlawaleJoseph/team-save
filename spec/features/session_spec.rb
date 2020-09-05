@@ -1,27 +1,38 @@
 require 'rails_helper'
 
 RSpec.feature 'Sessions', type: :feature do
-  let(:person) { create :user }
+  let(:user) { create :user }
 
-  scenario 'Validate user input' do
-    visit new_session_path
+  context 'Login' do
+    scenario "should not login a user that doesn't exist" do
+      visit new_session_path
 
-    fill_in 'user[username]', with: 'a'
-    click_button 'Log In'
-    puts page
-    expect(page.current_path).to eq(sessions_path)
+      fill_in 'Username', with: 'not_exist'
+      click_button 'Log In'
+
+      expect(page.current_path).to eq(sessions_path)
+    end
+
+    scenario 'Should login an existing user' do
+      visit new_session_path
+
+      fill_in 'Username', with: user.username
+      click_button 'Log In'
+
+      expect(page.current_path).to eq(expenses_path)
+      expect(page).to have_content('Dashboard')
+    end
   end
 
-  scenario 'Login registered user with valid username' do
-    sign_in person
+  context 'Logout' do
+    scenario 'Should login an existing user' do
+      visit new_session_path
 
-    expect(page).to have_content('Dashboard')
-  end
+      fill_in 'Username', with: user.username
+      click_button 'Log In'
+      click_link 'Logout'
 
-  scenario 'Logout a user' do
-    sign_in person
-
-    sign_out
-    expect(page).to have_content('Sign In')
+      expect(page.current_path).to eq(logout_path)
+    end
   end
 end

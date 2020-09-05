@@ -10,8 +10,18 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 3, maximum: 50 },
                        uniqueness: { case_sensitive: false }
 
-  def total_expenses
-    expenses.map(&:amount).inject(:+)
+  def total_grouped_expenses
+    grouped = expenses.select { |item| item.teams.exists? }
+    grouped.map(&:amount).inject(:+)
+  end
+
+  def total_ungrouped_expenses
+    grouped = expenses.reject { |item| item.teams.exists? }
+    grouped.map(&:amount).inject(:+)
+  end
+
+  def all_teams
+    [].concat(invited_teams, my_teams)
   end
 
   def invitations

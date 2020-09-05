@@ -14,15 +14,22 @@
  *= require_self
  */
 
+.text-color {
+  color: #434b54;
+}
+
+.light-text {
+  color: #717983;
+}
+
 .wrapper {
   max-width: 2100px;
   margin-left: auto;
   margin-right: auto;
 }
 
-nav {
-  height: 10vh;
-  background-color: #3778c2;
+.custom-nav {
+  background-color: #3778c2 !important;
 }
 
 a {
@@ -38,29 +45,8 @@ view {
   flex: 1;
 }
 
-.side-menu {
-  min-height: 90vh;
-  width: 225px;
-  background-color: #25476d;
-}
-
-.side-bar {
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-  min-width: 225px;
-  max-width: 225px;
-}
-
-.side-nav-link {
-  font-size: 1.2em;
-}
-
 .custom-card-img {
-  height: 280px !important;
+  width: 150px;
 }
 
 .invite-form {
@@ -68,8 +54,12 @@ view {
 }
 
 .custom-card {
-  width: 18%;
-  margin: calc(2% / 4);
+  width: 100%;
+  margin: 10px;
+}
+
+.light-border-bottom {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .price {
@@ -77,6 +67,21 @@ view {
   font-size: 2rem;
 }
 
+.custom-btn {
+  background-color: #5fb523;
+}
+
 .section-title {
   color: #6b8eb7;
+}
+
+.grey-bg {
+  background-color: #f1f3f2;
+}
+
+@media screen and (min-width: 768px) {
+  .custom-card {
+    width: 450px;
+    margin: 10px;
+  }
 }

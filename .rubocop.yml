@@ -13,7 +13,7 @@ AllCops:
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 160
+  Max: 200
 Metrics/CyclomaticComplexity:
   Max: 7
 Metrics/MethodLength:
